@@ -2,7 +2,8 @@
 
 SETTINGS='{
   "workbench.panel.opensMaximized": "always",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.visible": false
 }'
 
 # Merge settings into a VS Code settings.json file
