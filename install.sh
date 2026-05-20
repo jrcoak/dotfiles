@@ -4,7 +4,8 @@ SETTINGS='{
   "workbench.panel.opensMaximized": "always",
   "workbench.startupEditor": "none",
   "workbench.sideBar.visible": false,
-  "files.autoSave": "onFocusChange"
+  "files.autoSave": "onFocusChange",
+  "editor.stickyScroll.enabled": true
 }'
 
 # Merge settings into a VS Code settings.json file
