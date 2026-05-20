@@ -14,7 +14,10 @@ SETTINGS='{
     "**/__pycache__/**": true
   },
   "editor.stickyScroll.enabled": true,
-  "terminal.integrated.scrollback": 50000
+  "terminal.integrated.scrollback": 50000,
+  "git.autofetch": true,
+  "git.decorations.enabled": true,
+  "scm.diffDecorations": "gutter"
 }'
 
 # Merge settings into a VS Code settings.json file
