@@ -5,6 +5,14 @@ SETTINGS='{
   "workbench.startupEditor": "none",
   "workbench.sideBar.visible": false,
   "files.autoSave": "onFocusChange",
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/__pycache__/**": true
+  },
   "editor.stickyScroll.enabled": true,
   "terminal.integrated.scrollback": 50000
 }'
