@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SETTINGS='{
-  "terminal.integrated.defaultLocation": "editor",
+  "workbench.panel.opensMaximized": "always",
   "workbench.startupEditor": "none"
 }'
 
