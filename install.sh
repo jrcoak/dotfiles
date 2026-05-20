@@ -1,11 +1,16 @@
 #!/bin/bash
 
-# VS Code settings: terminal as editor area, no welcome tab
-SETTINGS_DIR="$HOME/.vscode-server/data/Machine"
-mkdir -p "$SETTINGS_DIR"
-cat > "$SETTINGS_DIR/settings.json" <<'EOF'
-{
+SETTINGS='{
   "terminal.integrated.defaultLocation": "editor",
   "workbench.startupEditor": "none"
-}
-EOF
+}'
+
+# VS Code Desktop / SSH remote
+DESKTOP_DIR="$HOME/.vscode-server/data/Machine"
+mkdir -p "$DESKTOP_DIR"
+echo "$SETTINGS" > "$DESKTOP_DIR/settings.json"
+
+# VS Code Browser
+BROWSER_DIR="$HOME/.vscode-browser-server/data/Machine"
+mkdir -p "$BROWSER_DIR"
+echo "$SETTINGS" > "$BROWSER_DIR/settings.json"
