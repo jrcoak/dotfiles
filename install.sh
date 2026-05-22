@@ -47,11 +47,14 @@ merge_settings "$HOME/.vscode-browser-server/data/User/settings.json"
 merge_settings "$HOME/.vscode-server/data/User/settings.json"
 
 # Environment configuration via CLI
-# The CLI auto-detects the current environment from /usr/local/gitpod/secrets/token
-if command -v ona &>/dev/null; then
+# Use the environment-scoped token so the CLI can resolve the current environment,
+# even when ONA_TOKEN is set to a user-scoped PAT.
+if command -v ona &>/dev/null && [ -f /usr/local/gitpod/secrets/token ]; then
+  ENV_TOKEN=$(cat /usr/local/gitpod/secrets/token)
+
   # Verify CLI can resolve the current environment
-  ona environment get -f id 2>/dev/null && echo "dotfiles: environment detected"
+  ONA_TOKEN="$ENV_TOKEN" ona environment get -f id 2>/dev/null && echo "dotfiles: environment detected"
 
   # Set default inactivity timeout to 3 hours (requires CLI >= 20260522)
-  ona environment update --inactivity-timeout 3h &>/dev/null &
+  ONA_TOKEN="$ENV_TOKEN" ona environment update --inactivity-timeout 3h &>/dev/null &
 fi
