@@ -45,3 +45,13 @@ with open('$settings_file', 'w') as f: json.dump(existing, f, indent=4)
 # User-level settings (what VS Code browser actually respects)
 merge_settings "$HOME/.vscode-browser-server/data/User/settings.json"
 merge_settings "$HOME/.vscode-server/data/User/settings.json"
+
+# Environment configuration via CLI
+# The CLI auto-detects the current environment from /usr/local/gitpod/secrets/token
+if command -v ona &>/dev/null; then
+  # Verify CLI can resolve the current environment
+  ona environment get -f id 2>/dev/null && echo "dotfiles: environment detected"
+
+  # Set default inactivity timeout to 3 hours (requires CLI >= 20260522)
+  ona environment update --inactivity-timeout 3h &>/dev/null &
+fi
